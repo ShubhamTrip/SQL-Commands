@@ -1,0 +1,58 @@
+Some Notes:
+
+1. Sql is not case sensitive.
+2. Their is no senquential constraint in Sql. Just select the potion you wish to execute.
+
+
+1. Creating DB
+
+Create DATABASE xyz;
+
+
+2. Using DB -- Creation doesnt mean you are accessing the DB
+use xyz;
+
+
+3. Creating of table..
+
+CREATE TABLE employees(
+id tinyint unsigned primary key,
+name varchar(50) not null,
+salary int unsigned
+);
+
+
+
+4. Inserting values into the table.
+
+Insert into employees
+(id, name, salary)
+values
+(1,"Shubham",200000),
+(2,"Prashant",300000),
+(3,"Abhishek",400000),
+(4,"Ankur",500000);
+
+
+4. Query command (QML --> Query Manipulation Language -- Select command).
+
+select * from employees;
+
+select avg(salary) from employees;
+
+Insert into employees value (6, "Shubham", 500000);
+
+
+
+5. selection argument can be a have to be a part of group by argument.
+
+SELECT  name, count(name) from employees group by name order by name desc;
+
+
+6. count(salary) --> the is arethematic argument, considered separate for selection arguement and can be multiple but are part of selection as it gets shown in O/p.
+
+SELECT salary, name, count(salary), count(name) from employees group by salary, name order by name desc;
+
+select salary from employees group by salary, name;
+
+select name from employees where salary>300000;
